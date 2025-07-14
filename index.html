@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8" />
+    <title>Parashikimi i Motit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        .error {
+            color: red;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Kërko motin në qytetin tënd</h1>
+    
+    <form method="post">
+        <input type="text" name="city" placeholder="Shkruaj emrin e qytetit" required>
+        <button type="submit">Shfaq motin</button>
+    </form>
+
+    {% if gabim %}
+        <div class="error">{{ gabim }}</div>
+    {% endif %}
+
+    {% if moti %}
+        <div class="card">
+            <h2>{{ moti.ikona }} Moti në {{ moti.qyteti }}</h2>
+            <p>🌡️ Temperatura: <strong>{{ moti.temperatura }}°C</strong></p>
+            <p>💧 Lagështia: <strong>{{ moti.lageshtia }}%</strong></p>
+            <p>📖 Përshkrimi: <em>{{ moti.pershkrimi }}</em></p>
+        </div>
+    {% endif %}
+</body>
+</html>
+
