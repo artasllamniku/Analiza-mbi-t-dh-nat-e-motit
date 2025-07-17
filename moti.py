@@ -76,6 +76,6 @@ def merr_te_dhena_per_web_me_id(city_id):
     moti = merr_moti_me_id(city_id)
     if not moti:
         return None
-    moti['qyteti'] = ndreq_emrin(moti['qyteti'])  # <-- e shtojmë këtë rresht
+    moti['qyteti'] = ndreq_emrin(moti['qyteti'])  
     moti['ikona'] = ikonat_e_motit(moti['pershkrimi'])
     return moti
